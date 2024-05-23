@@ -51,14 +51,4 @@ fn main() {
 
     // Print the derived key
     println!("Derived key: {:x?}", key);
-
-    // Decrypt each ciphertext using the derived key
-    for ct in &ciphertext_bytes {
-        let decrypted: Vec<u8> = xor_bytes(ct, &key);
-        if let Ok(plaintext) = str::from_utf8(&decrypted) {
-            println!("Decrypted message: {}", plaintext);
-        } else {
-            println!("Decrypted message (raw): {:?}", decrypted);
-        }
-    }
 }
